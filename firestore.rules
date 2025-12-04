@@ -1,0 +1,26 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /projects/{projectId} {
+      
+      // Admin users collection - read only for the user themselves
+      match /admins/{userId} {
+        allow read: if request.auth != null && request.auth.uid == userId;
+        allow write: if false; // Only SuperAdmin can create/update admins
+      }
+      
+      // Helper function to check if user is admin of this project
+      function isProjectAdmin() {
+        return request.auth != null && 
+               exists(/databases/$(database)/documents/projects/$(projectId)/admins/$(request.auth.uid)) &&
+               get(/databases/$(database)/documents/projects/$(projectId)/admins/$(request.auth.uid)).data.role == 'admin' &&
+               get(/databases/$(database)/documents/projects/$(projectId)/admins/$(request.auth.uid)).data.projectId == projectId;
+      }
+      
+      // All other collections (inquiries, programs, gallery, testimonials, settings)
+      match /{collection}/{document=**} {
+        allow read, write: if isProjectAdmin();
+      }
+    }
+  }
+}

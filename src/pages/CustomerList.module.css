@@ -1,0 +1,162 @@
+.searchBar {
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .searchContainer {
+        flex-direction: row;
+    }
+}
+
+.searchInput {
+    position: relative;
+    flex: 1;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    width: 1.25rem;
+    height: 1.25rem;
+    pointer-events: none;
+}
+
+.searchInput input {
+    width: 100%;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.searchInput input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.filterButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db;
+    background: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filterButton:hover {
+    background: #f9fafb;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableHead {
+    background: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tableHead th {
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tableBody {
+    background: white;
+}
+
+.tableBody tr {
+    border-bottom: 1px solid #e5e7eb;
+    transition: background 0.2s ease;
+}
+
+.tableBody tr:hover {
+    background: #f9fafb;
+}
+
+.tableBody td {
+    padding: 1rem 1.5rem;
+    white-space: nowrap;
+}
+
+.tableName {
+    font-weight: 500;
+    color: #111827;
+}
+
+.tableText {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 9999px;
+    font-weight: 500;
+}
+
+.badgeBlue {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.badgeGreen {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.badgeYellow {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badgePurple {
+    background: #ede9fe;
+    color: #5b21b6;
+}
+
+.actionButton {
+    color: #3b82f6;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    margin-right: 0.75rem;
+    transition: color 0.2s ease;
+}
+
+.actionButton:hover {
+    color: #1e40af;
+}
+
+.deleteButton {
+    color: #ef4444;
+}
+
+.deleteButton:hover {
+    color: #b91c1c;
+}
